@@ -30,4 +30,4 @@ https://safarnak.iran.liara.run/
 https://github.com/zahramahdavi22000/safarnak
 
 ### Document
-https://github.com/zahramahdavi22000/safarnak
+https://github.com/zahramahdavi22000/safarnak/blob/main/document/document.pdf
