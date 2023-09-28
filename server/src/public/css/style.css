@@ -1,0 +1,260 @@
+html{
+  scroll-padding-top: 56px;
+}
+
+:root {
+  --blue: #20C997;
+  --primary: rgb(33, 201, 151);
+}
+
+
+
+body {
+  background-color: #fafafa;
+}
+
+
+
+/* all tags */
+/*remove under line for a Tag*/
+a {
+  text-decoration: none !important;
+}
+
+/* placeholder to rigth */
+::-webkit-input-placeholder {
+  text-align: right;
+}
+
+input:-moz-placeholder {
+  text-align: right;
+}
+
+
+/* RTL icon for FAQ */
+.accordion-button::after {
+  margin-left: 0px;
+  margin-right: auto;
+}
+
+/* Margin Right for enter button */
+@media (min-width: 576px) {
+  .sm-me-auto {
+    margin-right: auto !important;
+  }
+}
+
+
+.bg-primary {
+  background: #20C997 !important;
+}
+
+
+.ftco-section {
+  padding: 7em 0;
+}
+
+.ftco-no-pt {
+  padding-top: 0;
+}
+
+.ftco-no-pb {
+  padding-bottom: 0;
+}
+
+/* .heading-section {
+  font-size: 28px;
+  color: #000;
+} */
+
+.img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.form-control {
+  height: 36px;
+  background: #fff;
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 14px;
+  border-radius: 2px;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.form-control::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.form-control::-moz-placeholder {
+  /* Firefox 19+ */
+  color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.form-control:-ms-input-placeholder {
+  /* IE 0+ */
+  color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.form-control:-moz-placeholder {
+  /* Firefox 18- */
+  color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.form-control:focus,
+.form-control:active {
+  border-color: #20C997 !important;
+}
+
+textarea.form-control {
+  height: inherit !important;
+}
+
+.wrapper {
+  width: 100%;
+}
+
+.contact-wrap {
+  background: #fff;
+}
+
+@media (max-width: 767.98px) {
+  .info-wrap {
+    height: 400px;
+  }
+}
+
+.dbox {
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+@media (max-width: 767.98px) {
+  .dbox {
+    margin-bottom: 25px !important;
+    padding: 0 20px;
+  }
+}
+
+.dbox p {
+  margin-bottom: 0;
+}
+
+.dbox p span {
+  font-weight: 500;
+  color: #000;
+}
+
+.dbox p a {
+  color: #20C997;
+}
+
+.dbox .icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #20C997;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.dbox .icon span {
+  font-size: 20px;
+  color: #fff;
+}
+
+.dbox .text {
+  width: 100%;
+}
+
+
+.contactForm .label {
+  color: #000;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.contactForm .form-control {
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0;
+}
+
+#contactForm .error {
+  color: red;
+  font-size: 12px;
+}
+
+#contactForm .form-control {
+  font-size: 16px;
+}
+
+#message {
+  resize: vertical;
+}
+
+#form-message-warning,
+#form-message-success {
+  display: none;
+}
+
+#form-message-warning {
+  color: red;
+}
+
+#form-message-success {
+  color: #20C997;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.submitting {
+  float: left;
+  width: 100%;
+  padding: 10px 0;
+  display: none;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* body:after {
+  width: 100%;
+  height: 56px;
+  content: '';
+  display: block;
+  visibility: hidden;
+} */
+
+/* *****************************************************************************************************  boubles *************************/
+
+
+
+/* body {
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 80px; 
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+} */
+
+.filterTab {
+  display: inline-block;
+  padding: 12px;
+  background-color:#E3EBEB;
+  color: #383131;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.filterTab.active {
+  background-color: #20C997;
+  color: white;
+}

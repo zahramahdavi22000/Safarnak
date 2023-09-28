@@ -1,0 +1,219 @@
+<nav class="navbar sticky-top  bg-body-tertiary navbar-expand-sm navbar-light bg-light shadow-sm">
+  <div class=" container-fluid">
+
+  <a class="navbar-brand" href="/"><strong>سفرناک</strong></a>
+
+
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" id="navbarBtn">
+    <span class="navbar-toggler-icon"></span>
+
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav w-100">
+
+      <a class="nav-link" aria-current="page" href="/index.html#tourListSection">تور ها</a>
+      <a class="nav-link" href="/smart_search.html">جستوجوی هوشمند</a>
+      <!-- <a class="nav-link" href="/index.html#guarantee">گارانتی قیمت</a> -->
+      <a class="nav-link" href="/index.html#guarantee">گارانتی قیمت</a>
+      <a class="nav-link" href="/index.html#team">تیم ما</a>
+      <a class="nav-link" href="/index.html#about_us">درباره ما</a>
+      <a class="nav-link" href="/index.html#contact_us">تماس با ما</a>
+      <a>iiiii</a>
+
+      <li class="nav-item sm-me-auto ">
+
+        <button class="nav-link btn btn-link dropdown-toggle" type="button" id="dropdownMenuButton1"
+          data-bs-toggle="dropdown" aria-expanded="false">
+        </button>
+
+        <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="dropdownMenuButton1" id="navbarSubMenu">
+
+          <li><a class="dropdown-item text-end" href="/user/user_reserves.html">رزرو ها</a></li>
+          <li><a class="dropdown-item text-end" data-bs-toggle="modal" data-bs-target="#editProfileModal"
+              href="#">ویرایش پروفایل</a></li>
+          <li><a class="dropdown-item text-end" data-bs-toggle="modal" data-bs-target="#changePasswordModal"
+              href="#">تغییر رمز</a></li>
+          <li><a class="dropdown-item text-end" href="/exit">خروج از حساب</a></li>
+        </ul>
+      </li>
+
+      <li class="nav-item sm-me-auto " id="enterPart">
+        <button class="btn btn-primary" type="button" id="enterBtn">ثبت نام / ورود</button>
+      </li>
+
+    </ul>
+
+  </div>
+
+  </div>
+
+</nav>
+
+
+<!-- change_password modal-------------------------------------------------------------------------------------------------------->
+
+<div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="changePasswordModalLabel">
+          تغییر رمز عبور حساب
+        </h5>
+      </div>
+      <div class="modal-body">
+        <form id="changePasswordForm">
+          <div class="mb-3">
+            <label for="currentPassword" class="form-label fw-bold">رمز عبور فعلی</label>
+            <input type="password" class="form-control" id="currentPassword" name="currentPassword"
+              placeholder="رمز فعلی خود را وارد کنید" />
+          </div>
+          <div class="mb-3">
+            <label for="newPassword" class="form-label fw-bold">رمز عبور جدید</label>
+            <input type="password" class="form-control" id="newPassword" name="newPassword"
+              placeholder="رمز جایگزین را وارد کنید" />
+          </div>
+          <div class="mb-3">
+            <label for="confirmPassword" class="form-label fw-bold">تایید رمز عبور</label>
+            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
+              placeholder="مجددا رمز جدید را وارد کنید" />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          بستن
+        </button>
+        <button type="submit" form="changePasswordForm" class="btn btn-primary">
+          تغییر رمز
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- edit profile modal-------------------------------------------------------------------------------------------------------->
+
+<div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editProfileModalLabel">
+          ویرایش پروفایل
+        </h5>
+      </div>
+      <div class="modal-body">
+        <form id="editProfileForm">
+          <div class="mb-3">
+            <label for="name" class="form-label fw-bold">نام</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="نام خود را وارد کنید" />
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label fw-bold">ایمیل</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="ایمیل خود را وارد کنید" />
+          </div>
+          <div class="mb-3">
+            <label for="phone" class="form-label fw-bold">شماره همراه</label>
+            <input type="text" class="form-control" id="phone" name="phone"
+              placeholder="شماره همراه خود را وارد کنید" />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          بستن
+        </button>
+        <button type="submit" form="editProfileForm" class="btn btn-primary">
+          ذخیره تغییرات
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- scripts---------------------------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------------------------------------->
+
+
+
+<!-- change password mdal -->
+
+<script>
+
+  $("#changePasswordForm").off("submit").on("submit", function () {
+    $.post("/user/change_password", $(this).serialize(), function (data) {
+      responseHandler(data)
+      if (data.status) $("#changePasswordModal").modal('hide')
+    }, "json")
+    return false
+  })
+
+</script>
+
+<!--------------------------------------------------------------------------------------------------------------->
+<!--  user is logined or not?!  -->
+<script>
+
+  function handleUserHeader() {
+
+    if (document.cookie && getCookie("role") == "user") {
+      document.getElementById("enterBtn").style.cssText = 'display:none !important'
+      document.getElementById("enterPart").style.cssText = 'display:none !important'
+      let name = getCookie("name")
+      name = decodeURIComponent(name)
+      name = " " + name + " "
+      $("#dropdownMenuButton1").html(`${name}`)
+
+
+    } else {
+      document.getElementById("navbarSubMenu").style.cssText = 'display:none !important'
+      // document.getElementById("navbarBtn").style.cssText = 'display:none !important'
+      document.getElementById("dropdownMenuButton1").style.cssText = 'display:none !important'
+
+      $("#enterBtn").off("click").click(function () {
+        redirect("/user/user_login.html")
+      })
+
+    }
+
+  }
+
+  handleUserHeader()
+
+
+</script>
+
+
+<!--------------------------------------------------------------------------------------------------------------->
+<!-- edit profile modal -->
+
+<script>
+
+  function handleUserInfo() {
+
+    $("#name").val(decodeURIComponent(getCookie("name")))
+    $("#email").val(decodeURIComponent(getCookie("email")))
+    $("#phone").val(decodeURIComponent(getCookie("phone")))
+
+  }
+
+  handleUserInfo()
+
+  $("#editProfileForm").off("submit").on("submit", function () {
+    $.post("/user/edit_profile", $(this).serialize(), function (data) {
+      responseHandler(data)
+      handleUserInfo()
+      handleUserHeader()
+      if (data.status) $("#editProfileModal").modal('hide')
+    }, "json")
+    return false
+  })
+
+</script>

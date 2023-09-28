@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fa-IR" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/css/style.css">
+  <title>رزرو های من</title>
+</head>
+
+<body  class="d-flex flex-column min-vh-100">
+  <include src="user_header.html"></include>
+
+  <div class="container mt-5">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title mb-5"><b>
+            رزرو های من
+          </b></h5>
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>ردیف</th>
+                <th>تور</th>
+                <th>تعداد بلیط</th>
+                <th>قیمت هر بلیط</th>
+                <th>قیمت کل</th>
+                <th>وضعیت</th>
+                <th>شماره پیگیری</th>
+
+              </tr>
+            </thead>
+            <tbody id="table">
+              <!-- table loaded js -->
+            </tbody>
+
+          </table>
+        </div>
+        <nav>
+          <ul class="pagination justify-content-center mt-5" id="pagination">
+            <!-- pagination loaded js -->
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <include src="/footer.html" class="mt-auto"></include>
+  <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+  <script src="/js/main.js"></script>
+  <script>
+    let pagination = $("#pagination")
+    let table = $("#table")
+
+    function loadPage(page) {
+      let data = { page }
+
+      $.post("/user/reserve/list", data, function (res) {
+        let { reserves, page, max_page, per_page } = res
+
+
+        {
+          let myHtml = ""
+
+          for (let i = 1; i <= max_page; i++) {
+            myHtml +=
+              `
+                <li class="page-item">
+                  <a class="page-link ${page == i ? "active" : ""}" onclick='loadPage(${i})'> ${i} </a> 
+                </li>
+              `
+          }
+
+          pagination.html(myHtml)
+        }
+
+        {
+          let myHtml = ""
+
+          for (let i = 0; i < reserves.length; i++) {
+            let reserve = reserves[i]
+            let statusMapper = {
+              "SCCESSFFULL_PAYMENT": "پرداخت موفق",
+              "FAIL_PAYMENT": "پرداخت ناموفق",
+              "WAIT_FOR_PAYMENT": "در انتظار پرداخت"
+            }
+
+
+
+
+            myHtml +=
+              `
+              <tr>
+                <td>${per_page * (page - 1) + i + 1}</td>
+                <td>${reserve.tour.title}</td>              
+                <td>${reserve.quantity}</td>
+                <td>${numberWithCommas(reserve.price)}</td>
+                <td>${numberWithCommas(reserve.totalPrice)}</td>
+                <td>${statusMapper[reserve.status]}</td>
+                <td>${reserve.paymentCode || ""}</td>
+              </tr>
+              `
+          }
+
+          table.html(myHtml)
+        }
+
+      }, "json")
+    }
+
+    loadPage(1)
+
+  </script>
+
+</body>
+
+</html>

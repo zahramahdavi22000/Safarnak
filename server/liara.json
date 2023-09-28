@@ -1,0 +1,14 @@
+  {
+    "platform": "node",
+    "app": "safarnak",
+    "port": 8000,
+    "node": {
+      "version": "16"
+    },
+    "disks": [
+      {
+        "name": "my-upload",
+        "mountTo": "src/public/uploads"
+      }
+    ]
+  }

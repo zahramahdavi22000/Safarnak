@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="fa-IR" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <title>لیست تورها</title>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+  <include src="/admin/admin_header.html"></include>
+  <!-- modal edit tour -->
+
+  <div class="modal fade" id="editTourPhoto" tabindex="-1" aria-labelledby="editTourPhotoLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+
+        <div class="modal-header">
+          <h5 class="modal-title" id="editTourPhotoLabel">
+            ویرایش تور </h5>
+        </div>
+
+
+        <div class="modal-body">
+          <form id="editTourForm">
+            <div class="mb-3">
+              <label for="title" class="form-label fw-bold">نام تور</label>
+              <input type="text" class="form-control" id="title" name="title" placeholder="نام تور را وارد کنید" />
+            </div>
+            <div class="mb-3">
+              <label for="price" class="form-label fw-bold">هزینه تور (تومان)</label>
+              <input type="number" class="form-control" id="price" name="price"
+                placeholder="هزینه مورد نظر خود را برای تور وارد کنید" />
+            </div>
+            <div class="mb-3">
+              <label for="max_ticket" class="form-label fw-bold">ظرفیت تور</label>
+              <input type="number" class="form-control" id="max_ticket" name="max_ticket"
+                placeholder="ظرفیت مورد نظر خود را برای تور وارد  کنید" />
+            </div>
+
+            <div class="mb-3">
+              <label for="tags" class="form-label fw-bold">تگ ها</label>
+              <input type="text" class="form-control" id="tags" name="tags" placeholder="تگ های تور را وارد کنید" />
+            </div>
+
+
+            <div class="mb-3">
+              <label for="summary" class="form-label fw-bold">خلاصه تور</label>
+              <textarea class="form-control" id="summary" rows="4" placeholder="ویژگی های تور را بنویسید"
+                name="summary"></textarea>
+            </div>
+
+            <div class=" mb-3">
+              <label for="description" class="form-label fw-bold">توضیحات تور</label>
+              <textarea class="form-control" id="description" rows="6" placeholder="توضیحی درباره تور بدهید"
+                name="description"></textarea>
+            </div>
+
+          </form>
+        </div>
+
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            بستن
+          </button>
+          <button id='btn-sub' type="submit" form="editTourForm" class="btn btn-primary">
+            ذخیره تغیرات
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- modal add tour -->
+
+
+
+  <div class="modal fade" id="createNewTourModal" tabindex="-1" aria-labelledby="createNewTourModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+
+        <div class="modal-header">
+          <h5 class="modal-title" id="createNewTourModalLabel">
+            افزودن تور </h5>
+        </div>
+
+
+        <div class="modal-body">
+          <form id="createNewTourForm">
+            <div class="mb-3">
+              <label for="n_title" class="form-label fw-bold">نام تور</label>
+              <input type="text" class="form-control" id="n_title" name="title" placeholder="نام تور را وارد کنید" />
+            </div>
+            <div class="mb-3">
+              <label for="n_price" class="form-label fw-bold">هزینه تور (تومان)</label>
+              <input type="number" class="form-control" id="n_price" name="price"
+                placeholder="هزینه مورد نظر خود را برای تور وارد کنید" />
+            </div>
+            <div class="mb-3">
+              <label for="n_max_ticket" class="form-label fw-bold">ظرفیت تور</label>
+              <input type="number" class="form-control" id="n_max_ticket" name="max_ticket"
+                placeholder="ظرفیت مورد نظر خود را برای تور وارد  کنید" />
+            </div>
+
+            <div class="mb-3">
+              <label for="tags" class="form-label fw-bold">تگ ها</label>
+              <input type="text" class="form-control" id="tags" name="tags" placeholder="تگ های تور را وارد کنید" />
+            </div>
+
+            <div class="mb-3">
+              <label for="n_photo" class="form-label fw-bold">عکس تور</label>
+              <input type="file" class="form-control" id="n_photo" name="photo" />
+            </div>
+
+            <div class="mb-3">
+              <label for="n_summary" class="form-label fw-bold">خلاصه تور</label>
+              <textarea class="form-control" id="n_summary" rows="4" placeholder="ویژگی های تور را بنویسید"
+                name="summary"></textarea>
+            </div>
+
+            <div class="mb-3">
+              <label for="n_description" class="form-label fw-bold">توضیحات تور</label>
+              <textarea class="form-control" id="n_description" rows="6" placeholder="توضیحی درباره تور بدهید"
+                name="description"></textarea>
+            </div>
+
+          </form>
+        </div>
+
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            بستن
+          </button>
+          <button type="submit" form="createNewTourForm" class="btn btn-primary">
+            ذخیره تور
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- modal change tour photo  -->
+
+
+
+  <div class="modal fade" id="uploadProfileModal" tabindex="-1" aria-labelledby="uploadProfileModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="uploadProfileModalLabel">
+            تغییر عکس تور
+          </h5>
+        </div>
+        <div class="modal-body">
+          <form id="editTourPhotoForm2">
+            <div class="mb-3">
+              <label for="photo" class="form-label fw-bold">انتخاب فایل</label>
+              <input type="file" accept=".png, .jpg, .jpeg" class="form-control" id="photo" name="photo" />
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            بستن
+          </button>
+          <button type="submit" form="editTourPhotoForm2" class="btn btn-primary">
+            آپلود
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- change tour poster -->
+
+
+<!-- 
+  <div class="modal fade" id="uploadPosterModal" tabindex="-1" aria-labelledby="uploadPosterModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="uploadPosterModalLabel">
+            تغییر عکس تور
+          </h5>
+        </div>
+        <div class="modal-body">
+          <form id="editPosterForm">
+            <div class="mb-3">
+              <label for="poster" class="form-label fw-bold">انتخاب فایل</label>
+              <input type="file" accept=".png, .jpg, .jpeg" class="form-control" id="poster" name="poster" />
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            بستن
+          </button>
+          <button type="submit" form="editPosterForm" class="btn btn-primary">
+            آپلود
+          </button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
+  <!-- managing image tour -->
+  <div class="modal fade" id="manageImageModal" tabindex="-1" aria-labelledby="manageImageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="manageImageModalLabel">مدیریت گالری</h5>                  
+            </div>
+            <div class="modal-body">
+                <!-- Image Upload Form -->
+                <form id="manageImageUploadForm">
+                    <div class="mb-3">
+                        <input class="form-control" type="file" id="imageFile" name="imageFile">
+                    </div>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary">آپلود عکس</button>
+                    </div>
+                </form>
+
+                <!-- Image Gallery -->
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 mt-3">
+                    <!-- Images will be added dynamically -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">بستن</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+  <!-- tourList page -->
+
+  <div class="container mt-5">
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center mb-5">
+          <h5 class="card-title m-0">لیست تورها</h5>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createNewTourModal">
+            افزودن تور </button>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>ردیف</th>
+                <th>تور</th>
+                <th>ظرفیت</th>
+                <th>قیمت(تومان)</th>
+                <th>عملیات</th>
+              </tr>
+            </thead>
+            <tbody id="table">
+
+            </tbody>
+          </table>
+        </div>
+        <nav>
+          <ul class="pagination justify-content-center mt-5" id="pagination">
+            <!-- pagination loaded js -->
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <include src="/footer.html" class="mt-auto"></include>
+  <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+  <script src="/js/main.js"></script>
+
+  <script>
+    ///////////////////  handeling edit tour ///////////////////////
+
+
+    function openEditTourModal(tour, page) {
+      let modal = bootstrap.Modal.getOrCreateInstance(document.getElementById('editTourPhoto'))
+      modal.show()
+
+      $("#title").val(tour.title)
+      $("#price").val(tour.price)
+      $("#max_ticket").val(tour.max_ticket)
+      $("#tags").val(tour.tags.join(","))
+      $("#summary").val(tour.summary)
+      $("#description").val(tour.description)
+
+      $("#editTourForm").off("submit").on("submit", function () {
+        $.post("/admin/tour/edit", $(this).serialize() + `&_id=${tour._id}`, function (res) {
+          if (res.status) {
+            modal.hide()
+            loadPage(page)
+          }
+        })
+        return false
+      })
+    }
+
+
+    ////////// loading page /////////////////////////////
+
+    let pagination = $("#pagination")
+    let table = $("#table")
+
+
+    function loadPage(page) {
+      let data = { page }
+
+      $.post("/admin/tour/list", data, function (res) {
+        let { tours, page, max_page, per_page } = res
+
+        {
+          let myHtml = ""
+
+          for (let i = 1; i <= max_page; i++) {
+            myHtml +=
+              `
+                  <li class="page-item">
+                    <a class="page-link ${page == i ? "active" : ""}" onclick='loadPage(${i})'> ${i} </a> 
+                  </li>
+                `
+          }
+
+          pagination.html(myHtml)
+        }
+
+        {
+          let myHtml = ""
+
+          for (let i = 0; i < tours.length; i++) {
+            let tour = tours[i]
+
+            myHtml +=
+              `<tr>
+                <td>${per_page * (page - 1) + i + 1}</td>
+                <td>${tour.title}</td>
+                <td>${tour.tourReserved}/${tour.max_ticket}</td>
+                <td>${numberWithCommas(tour.price)}</td>
+                <td>
+                  <button type="button" class="btn btn-sm btn-primary" onclick='openEditTourModal(${JSON.stringify(tour)},${page})' >ویرایش تور </button> 
+                  <button type="button" class="btn btn-sm btn-secondary" onclick='openeditTourPhoto(${JSON.stringify(tour)},${page})' > تغییر عکس </button>
+                  <button type="button" class="btn btn-sm btn-secondary" onclick='openTourImagesModel(${JSON.stringify(tour)},${page})'>مدیریت گالری</button>                                                                   
+                  <button class="btn btn-sm btn-danger" onclick='deleteTour("${tour._id}")'>حذف</button>
+                </td>
+              </tr> `
+
+
+          }
+
+          table.html(myHtml)
+        }
+
+      }, "json")
+    }
+
+    loadPage(1)
+
+  </script>
+
+  <script>
+    ///////////////////  handeling add tour ///////////////////////
+    let modal = bootstrap.Modal.getOrCreateInstance(document.getElementById('createNewTourModal'))
+
+    $("#createNewTourForm").off("submit").on("submit", function () {
+
+
+      $.ajax({
+        type: 'POST',
+        url: "/admin/tour/add",
+        enctype: 'multipart/form-data',
+        data: new FormData(this),
+        processData: false,
+        contentType: false,
+        success: function (res) {
+          if (res.status) {
+            modal.hide()
+            loadPage(1)
+          }
+          responseHandler(res)
+        }
+      })
+
+      return false
+    })
+
+  </script>
+
+  <script>
+    //////////////////////////////////// handeling change tour photo ///////////////////////////////////
+
+    function openeditTourPhoto(tour, page) {
+      let modal = bootstrap.Modal.getOrCreateInstance(document.getElementById('uploadProfileModal'))
+      modal.show()
+
+
+      $("#editTourPhotoForm2").off("submit").on("submit", function () {
+
+        let fOrmdata = new FormData(this)
+        fOrmdata.append("_id", tour._id)
+
+        try {
+
+          $.ajax({
+            type: 'POST',
+            url: "/admin/tour/editPhoto",
+            enctype: 'multipart/form-data',
+            data: fOrmdata,
+            processData: false,
+            contentType: false,
+            success: function (res) {
+              if (res.status) {
+                modal.hide()
+                loadPage(1)
+              }
+              responseHandler(res)
+            }
+          })
+
+        } catch (e) {
+          consolel.log(e)
+        }
+
+        return false
+      })
+    }
+
+  </script>
+
+  <!-- <script>
+    ///////////////////////////////////// handling change tour poster ///////////////////////////////////
+    function openeditTourPoster(tour, page) {
+      let modal = bootstrap.Modal.getOrCreateInstance(document.getElementById('uploadPosterModal'))
+      modal.show()
+      $("#editPosterForm").off("submit").on("submit", function () {
+        let fOrmdata = new FormData(this)
+        fOrmdata.append("_id", tour._id)
+
+        try {
+
+          $.ajax({
+            type: 'POST',
+            url: "/admin/tour/editPoster",
+            enctype: 'multipart/form-data',
+            data: fOrmdata,
+            processData: false,
+            contentType: false,
+            success: function (res) {
+              if (res.status) {
+                modal.hide()
+                loadPage(1)
+              }
+              responseHandler(res)
+            }
+          })
+
+        } catch (e) {
+          consolel.log(e)
+        }
+
+        return false
+      })
+    }
+  </script> -->
+
+  <script>
+    /////////////////////// deleting Tour ///////////////////////////
+    function deleteTour(_id) {
+      $.post("/admin/tour/delete", { _id }, function (res) {
+        if (res.status) {
+          loadPage(1)
+        }
+        responseHandler(res)
+      })
+    }
+  </script>
+
+
+  <script>
+   /////////////////////////add image to Tour ///////////////////////
+
+
+function openTourImagesModel(tour , page) {
+  
+    let modal = bootstrap.Modal.getOrCreateInstance(document.getElementById('manageImageModal'))
+    modal.show()
+    let imageGallery = $('#manageImageModal .modal-body .row');
+
+    // Load images into the image gallery
+    let loadImages = function () {
+        $.post({
+            url: '/admin/tour/image/list',
+            data: { tourId: tour._id }
+        })
+            .done(function (data) {
+                // Clear the image gallery
+                
+                imageGallery.html("")
+                console.log(imageGallery)
+
+                let images = data.images
+
+                // Insert the new images into the gallery
+                images.forEach(function (image) {
+                    let imageCard = document.createElement('div');
+                    imageCard.classList.add('col');
+                    imageCard.innerHTML = `<div class="card"><img data="${image}" src="/` + image + '" class="card-img-top"><div class="card-body"><button type="button" class="btn btn-danger delete-image">حذف</button></div></div>';
+                    imageGallery.append(imageCard);
+                });
+                console.log(images)
+            })
+            .fail(function () {
+                console.error(error);
+                alert('Error loading images');
+            });
+    }
+
+
+    // Handle image upload form submission
+    $('#manageImageUploadForm').off("submit").on('submit', function (e) {
+        e.preventDefault();
+        let imageFile = document.querySelector('#imageFile').files[0];
+        if (imageFile) {
+            // Create a new FormData object and append the image file to it
+            let formData = new FormData();
+            formData.append('imageFile', imageFile);
+            formData.append('tourId', tour._id);
+
+            // Send a POST request to the server to upload the image
+            $.post({
+                url: '/admin/tour/image/upload',
+                data: formData,
+                processData: false,
+                contentType: false
+            })
+                .done(function () {
+                    // If the response is successful, reload the image gallery
+                    loadImages();
+                })
+                .fail(function () {
+                    // If the response is not successful, display an error message
+                    alert('Error uploading image');
+                });
+        }
+    });
+
+    // Handle image delete button clicks
+    // Handle image delete button clicks
+    imageGallery.off("click").on('click', function (e) {
+      console.log(1)
+        let image = e.target.parentElement.parentElement.firstChild
+        console.log(image)
+        if (image && image.tagName.toLowerCase() === 'img') {
+          console.log(2)
+            
+            let imageSrc = image.getAttribute("data");
+              
+            // imageSrc = "uploads/"+ imageSrc.split("uploads/")[1];    
+            if (imageSrc) {
+               
+                // Send a DELETE request to the server to delete the image
+                $.post({
+                    url: '/admin/tour/image/delete',
+                    data: { tourId: tour._id, image: imageSrc }
+                })
+                    .done(function () {
+                        // If the response is successful, reload the image gallery
+                        loadImages();
+                    })
+                    .fail(function () {
+                        // If the response is not successful, display an error message
+                        alert('Error deleting image');
+                    });
+            }
+        }
+    });
+   
+    loadImages()
+    // Load images when the modal is shown
+    // $('#imageModal').off("shown.bs.modal").on('shown.bs.modal', function () {
+    //     loadImages();
+    // });
+
+}
+
+</script>
+ 
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!-- Navbar -->
+<nav class="navbar sticky-top  bg-body-tertiary navbar-expand-sm navbar-light bg-light shadow-sm">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/"><strong>سفرناک</strong></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" id="navbarBtn">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+
+        <li class="nav-item">
+
+          <button class="nav-link btn btn-link dropdown-toggle" type="button" id="dropdownMenuButton1"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            مدیر سایت<i class="bi bi-caret-down"></i>
+          </button>
+
+          <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item text-end" href="/admin/admin_user_list.html">کاربران</a></li>
+            <li><a class="dropdown-item text-end" href="/admin/admin_tour_list.html">تورها</a></li>
+            <li><a class="dropdown-item text-end" href="/admin/admin_tour_reserves.html">رزرو ها </a></li>
+            <li><a class="dropdown-item text-end" href="/admin/admin_tour_comments.html">تجربه مشتریان</a></li>
+            <li><a class="dropdown-item text-end" data-bs-toggle="modal" data-bs-target="#changePasswordModal"
+                href="#">تغییر رمز عبور</a></li>
+            <li><a class="dropdown-item text-end" href="/exit">خروج از حساب</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="changePasswordModalLabel">
+          تغییر رمز عبور حساب
+        </h5>
+      </div>
+      <div class="modal-body">
+        <form id="changePasswordForm">
+          <div class="mb-3">
+            <label for="currentPassword" class="form-label fw-bold">رمز عبور فعلی</label>
+            <input type="password" class="form-control" id="currentPassword" name="currentPassword"
+              placeholder="رمز فعلی خود را وارد کنید" />
+          </div>
+          <div class="mb-3">
+            <label for="newPassword" class="form-label fw-bold">رمز عبور جدید</label>
+            <input type="password" class="form-control" id="newPassword" name="newPassword"
+              placeholder="رمز جایگزین را وارد کنید" />
+          </div>
+          <div class="mb-3">
+            <label for="confirmPassword" class="form-label fw-bold">تایید رمز عبور</label>
+            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
+              placeholder="مجددا رمز جدید را وارد کنید" />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          بستن
+        </button>
+        <button type="submit" id="btn-change" form="changePasswordForm" class="btn btn-primary">
+          تغییر رمز
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+  $("#changePasswordForm").off("submit").on("submit", function () {
+    $.post("/admin/change_password", $(this).serialize(), function (data) {
+      responseHandler(data)
+      if (data.status) $("#changePasswordModal").modal('hide')
+    }, "json")
+    return false
+  })
+
+</script>
+
+<!--  admin is logined or not?!  -->
+<script>
+
+  function handleAdminHeader() {
+    if (!document.cookie || getCookie("role") != "admin") {
+      document.getElementById("navbarNav").style.cssText = 'display:none !important'
+      document.getElementById("navbarBtn").style.cssText = 'display:none !important'
+    }
+
+  }
+
+  handleAdminHeader()
+
+
+</script>

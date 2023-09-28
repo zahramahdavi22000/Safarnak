@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fa-IR" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <title>جزئیات تور</title>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+  <include src="/user/user_header.html"></include>
+
+  <div class="container">
+    <div class="row" id="root">
+      <!-- slider --------------------------------------------------------------------------------------------->
+      <div class="col-12">
+        <div id="myCarousel" class="carousel slide my-4" data-bs-ride="carousel">
+          <ol class="carousel-indicators"></ol>
+          <div class="carousel-inner"></div>
+          <a class="carousel-control-prev" href="#myCarousel" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#myCarousel" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </a>
+        </div>
+      </div>
+      <!------------------------------------------------------------------------------------------------------->
+      <!------------------------------------------------------------------------------------------------------->
+      <div class="col-md-3 col-sm-12">
+        <div id="summarySection" class="mb-4"></div>
+        <div id="buytourSection" class="mb-4"></div>
+      </div>
+      <div class="col-md-9 col-sm-12">
+        <div id="descriptionSection" class="mb-4"></div>
+        <div id="commentSection" class="mb-4"></div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- <div id="details">
+
+
+  </div> -->
+
+  <!--first of modal------------------------------------------------------------------------------------------------------------------->
+
+  <div class="modal fade" id="addCommentModal" tabindex="-1" aria-labelledby="addCommentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addCommentModalLabel">
+            نوشتن تجربه
+          </h5>
+          <div class="rating">
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+          </div>
+        </div>
+        <div class="modal-body">
+          <form id="addCommentForm">
+
+            <div class="mb-3">
+              <textarea type="text" class="form-control" id="commentText" name="commentText" rows="4"
+                placeholder="تجربه خودتون رو از این سفر برای ما بنویسید"></textarea>
+            </div>
+            <div>
+              <button type="submit" form="addCommentForm" class="btn btn-primary" id="sendCommentBtn">
+                ارسال
+              </button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!--End of modal------------------------------------------------------------------------------------------------------------------->
+  <include src="/footer.html" class="mt-auto"></include>
+
+  <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+  <script src="/js/main.js"></script>
+
+  <script>
+    function loadPage() {
+      let _id = window.location.pathname.split('/')[2]
+
+      let summarySection = $("#summarySection")
+      let descriptionSection = $("#descriptionSection")
+      let buytourSection = $("#buytourSection")
+      let commentSection = $("#commentSection")
+
+      // let picture = $("#picture")
+      $.post("/user/tour/get", { _id }, function (res) {
+        let { tour, comments } = res
+        ///////////////////////////////////////////////////////////////////////
+        let commentsHtml = ""
+
+        comments.forEach(comment => {
+          commentsHtml += `
+  <div class="container mt-2">
+        <h6>${comment.user.name}</h6>
+        <div>
+            <span class="${comment.stars >= 5 ? "text-warning" : ""}">&#9733;</span>
+            <span class="${comment.stars >= 4 ? "text-warning" : ""}">&#9733;</span>
+            <span class="${comment.stars >= 3 ? "text-warning" : ""}">&#9733;</span>
+            <span class="${comment.stars >= 2 ? "text-warning" : ""}">&#9733;</span>
+            <span class="${comment.stars >= 1 ? "text-warning" : ""}">&#9733;</span>
+        </div>
+        <p>
+            ${replaceNWithBrLine(comment.text)}
+        </p>
+        <hr>
+  </div>
+
+  `
+        });
+        ///////////////////////////////////////////////////////////////////////
+        {
+          summarySection.html(
+            ` <div class="card">
+                  <div class="card-body">
+                      <h5 class="card-title mb-4">${tour.title}</h5>
+                      <p class="card-text">
+                          ${replaceNWithBrLine(tour.summary)}
+                      </p>
+                  </div>
+              </div>
+            `
+          )
+
+          descriptionSection.html(`
+          <div class="card">
+            <div class="card-body">
+                <h5 class="card-title mb-4">درباره تور</h5>
+                <p class="card-text">
+                    ${replaceNWithBrLine(tour.description)}
+                </p>
+            </div>
+          </div>
+          `)
+
+          buytourSection.html(`
+          <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title mb-4">رزرو تور</h5>
+
+
+                        <div class="d-flex justify-content-between mb-3"><span>تعداد بلیط</span>
+
+                            <div class="dropdown me-1">
+                                <a class="text-dark " id="dropdownMenuOffset" data-bs-toggle="dropdown"
+                                    aria-expanded="false" data-bs-offset="10,20">
+                                    بلیط
+                                </a>
+                                <select id="quantity">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="d-flex justify-content-between mb-3"><span>قیمت هر بلیط</span>
+                            <span>${numberWithCommas(tour.price)} تومان</span>
+                        </div>
+
+                        <div class="d-flex justify-content-between mb-3"><span>قیمت کل</span>
+                            <span id="totalPrice"> ${numberWithCommas(tour.price)} تومان </span>
+                        </div>
+
+                        <div>
+                            <button type="submit" class="btn btn-primary container-fluid" id="paymentBtn">
+                                پرداخت </button>
+                        </div>
+
+
+                    </div>
+                </div>
+          `)
+
+          commentSection.html(`
+          <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <h4 class="card-title mb-4">تجربه مسافران</h4>
+                    <div>
+                        <button class="btn btn-primary" id="addCommentBtn" data-bs-toggle="modal"
+                            data-bs-target="#addCommentModal">نوشتن تجربه </button>
+                    </div>
+                </div>
+                <hr>
+                ${commentsHtml}
+            </div>
+          </div>
+          `)
+
+
+          console.log(tour.images)
+
+          // Add each image to carousel
+          tour.images.forEach(function (image, index) {
+            console.log(image)
+            var activeClass = (index == 0) ? "active" : "";
+            var indicator = $("<li></li>", { "data-bs-target": "#myCarousel", "data-bs-slide-to": index, "class": activeClass });
+            var item = $("<div></div>", { "class": "carousel-item " + activeClass });
+            var img = $("<img>", { "src": '/' + image, "class": "d-block w-100" });
+            item.append(img);
+            $("#myCarousel .carousel-indicators").append(indicator);
+            $("#myCarousel .carousel-inner").append(item);
+          });
+
+
+
+          // picture.html(myHtml2)
+
+          $("#quantity").off("change").change(function () {
+            let quantity = Number($(this).val())
+            let totalPrice = quantity * tour.price
+            $("#totalPrice").text(numberWithCommas(totalPrice) + " تومان ")
+          })
+
+          $("#paymentBtn").off("click").click(function () {
+            var quantity = $('#quantity').find(":selected").val()
+            let url = document.URL
+            const tourId = url.split('/').pop()
+            $.post("/payment/check", { tourId, quantity }, responseHandler)
+          })
+        }
+      }, "json")
+    }
+
+    loadPage()
+
+  </script>
+
+  <script>
+    const stars = document.querySelectorAll('.star')
+
+    stars.forEach((star, index) => {
+      star.addEventListener('click', () => {
+        // Remove the bg-warning class from all stars
+        stars.forEach((s, i) => {
+          if (i >= index) {
+            s.classList.add('text-warning') // Add 'checked' class to the clicked star and all previous stars
+          } else {
+            s.classList.remove('text-warning')// Remove 'checked' class from stars after the clicked one
+          }
+        });
+      });
+    });
+  </script>
+
+  <script>
+    let modal = bootstrap.Modal.getOrCreateInstance(document.getElementById('addCommentModal'))
+    $("#sendCommentBtn").click(function () {
+      let stars = document.querySelectorAll('.star.text-warning').length
+      let text = $("#commentText").val()
+      let tourId = window.location.pathname.split('/')[2]
+      $.post("/comment/send", { stars, tourId, text }, function (res) {
+        responseHandler(res)
+      })
+      modal.hide()
+    })
+
+  </script>
+
+
+</body>
+
+</html>

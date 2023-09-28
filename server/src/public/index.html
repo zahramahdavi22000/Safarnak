@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="fa-IR" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <!-- animation--------------------------------------------------------------------------------------------------------------->
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" /> -->
+  <link rel="stylesheet" href="css/animation.css" />
+  <!-- animation--------------------------------------------------------------------------------------------------------------->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <title>سفرناک | رزرو تور</title>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+  <include src="/user/user_header.html"></include>
+
+  <!--welcome ---------------------------------------------------------------------------------------------------------------------->
+  <section class=" text-dark p-5 pt-lg-3 text-center text-sm-end">
+
+    <div class="container">
+      <div class="d-sm-flex align-items-center justify-content-between m-20">
+        <div class="m fade-down-left-load">
+          <h1>به <span class="text-primary">سفرناک</span> خوش آمدید</h1>
+          <p class="my-4">
+            خوش آمدید به دنیایی پر از هیجان و ماجراجویی که در این سایت برای شما آماده کرده‌ایم. اینجا یک جایی است که
+            می‌توانید با استفاده از تمام شگفتی‌هایی که دنیای گردشگری برایتان فراهم کرده، به رویای دیدن نقاط دور و نزدیک
+            خود بپردازید.
+
+
+          </p class="my-4">
+          <p>ما با افتخار به شما انتخاب‌های فراوانی از تورها و مقاصد گردشگری ارائه می‌دهیم. با توجه به تنوع بی‌نظیری که
+            در تورهای ما وجود دارد، می‌توانید براساس سلیقه و علاقه خود، مقصدی را برای سفر خود انتخاب کنید. از شهرهای
+            تاریخی و فرهنگی تا مناظر طبیعی زیبا، ما همه را در اختیار شما قرار داده‌ایم.
+
+          </p>
+          <a href="#tourListSection">
+            <button class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#enroll">شروع گشت و گذار
+            </button>
+          </a>
+        </div>
+        <img class="img-fluid  d-none d-sm-block fade-up-right-load" src="/img/undraw_Dev_focus_re_6iwt.png" alt=""
+          style="width: 35%" />
+      </div>
+    </div>
+  </section>
+
+  <!-- attribute -------------------------------------------------------------------------------------------------------------------- -->
+  <section id="attribute p-5 pt-lg-3">
+    <div class="  text-dark">
+      <div class="container">
+        <div class="row text-center g-4">
+          <div class="col-md">
+            <div class="card zoom-in-down">
+              <div class="card-body text-center">
+                <div class="h1 mb-3">
+                  <img src="/img/hot-air-balloon.png" class="h-25 w-25" alt="">
+                </div>
+                <h3 class="card-title mb-3">رتبه یک سفر</h3>
+                <p class="card-text mb-3">
+                  معتبرترین عرضه‌کننده محصولات گردشگری در ایران
+                </p>
+                <!-- <a href="#" class="btn btn-primary">Read More</a> -->
+              </div>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="card zoom-in-down">
+              <div class="card-body text-center">
+                <div class="h1 mb-3">
+                  <img src="/img/flight.png" class="h-25 w-25" alt="">
+                </div>
+                <h3 class="card-title mb-3">همسفر هر سفر</h3>
+                <p class="card-text mb-3">
+                  ارائه تمامی خدمات سفر (پرواز، قطار، اتوبوس، هتل و تور)
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="card zoom-in-down">
+              <div class="card-body text-center">
+                <div class="h1 mb-3">
+                  <img src="/img/maps-and-location.png" class="h-25 w-25" alt="">
+                </div>
+                <h3 class="card-title mb-3">همسفر همه لحظات سفر</h3>
+                <p class="card-text mb-3">
+                  پشتیبانی و همراهی ۲۴ ساعته در تمامی مراحل سفر
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <!-- guarantee -------------------------------------------------------------------------------------------------------------------- -->
+  <section class="p-5 pt-lg-3  text-dark" id="tourListSection">
+    <div class="container">
+
+      <div class=" text-dark">
+        <div class="container mt-5 mb-5 ">
+
+          <h2 class="text-center flip-up-animation">آغاز ماجراجویی اینجاست</h2>
+
+          <p class="lead text-center mb-5 flip-up-animation">
+            تورهای گروهی سفرناک، تجربه‌ای ناب از سفر
+          </p>
+          <div class="text-center">
+            <div class="filterTab my-1 active">همه</div>
+            <div class="filterTab my-1">تور داخلی</div>
+            <div class="filterTab my-1">تور خارجی</div>
+            <div class="filterTab my-1">تور طبیعت</div>
+            <div class="filterTab my-1">تور کوهنوردی</div>
+            <div class="filterTab my-1">تور لوکس</div>
+            <div class="filterTab my-1">تور سافاری</div>
+            <div class="filterTab my-1">تور اروپا</div>
+            <div class="filterTab my-1">تور تاریخی و فرهنگی</div>
+          </div>
+
+          <div class="my-5">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row ">
+                        <div class="col-md-2 col-sm-12">
+                            <h4 class="fw-bold my-1">فیلتر بر اساس</h4>
+                        </div>
+                        <div class="col-md-3 col-sm-12">
+                            <input type="number" class="form-control  my-1" id="min-price" placeholder="حداقل قیمت">
+                        </div>
+                        <div class="col-md-3 col-sm-12">
+                            <input type="number" class="form-control  my-1" id="max-price" placeholder="حداکثر قیمت">
+                        </div>
+    
+                        <div class="col-md-2 col-sm-12">
+                            <input type="number" class="form-control  my-1" id="passenger" placeholder="تعداد مسافرین">
+                        </div>
+                        <div class="col-md-2 col-sm-12">
+                            <button class="btn btn-primary my-1" style="width: 100%;" id="filterSearchBtn">جستجو</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+          <!-- tourList ---------------------------------------------------------------------------------------------------------------------->
+          <div class="row " id="tourList">
+            <!-- tourList handeled by js scripts-->
+          </div>
+          <!-- tourList ---------------------------------------------------------------------------------------------------------------------->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="p-5 pt-lg-3  text-dark" id="guarantee">
+    <div class="container">
+      <div class="row align-items-center justify-content-between">
+        <div class="col-md">
+          <img src="/img/undraw_static_assets_rpm6.png" class="img-fluid fade-down-left" alt="" />
+        </div>
+        <div class="col-md p-5 fade-up-right">
+          <h2>گارانتی بهترین قیمت</h2>
+          <p class="lead">
+            داستان بسیار ساده است. برای اینکه مطمئن باشید بهترین قیمت تور در سفرناک ارائه شده است، می‌توانید باز هم در
+            مورد تور جستجو کنید. اگر همان تور را با قیمت پایین‌تری در جایی دیگر دیدید، این موضوع را به سفرناک اطلاع
+            دهید. پس از بررسی این موضوع، سفرناک با تخفیفی معادل دو برابر این اختلاف قیمت برایتان تور رزرو می‌کند.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- tour guides -------------------------------------------------------------------------------------------------------------------- -->
+  <section class="p-5 pt-lg-3  text-dark" id="team">
+    <div class="container">
+      <h2 class="text-center flip-up-animation">تیم ما</h2>
+      <p class="lead text-center mb-5 flip-up-animation">
+        بازدید از سایت ما، در جستجوی بهترین راهنمای تور ها برای سفرهای شما، می‌تواند انتخابی هوشمندانه و کارآمد باشد. ما
+        با افتخار به شما ارائه دهنده یک پلتفرم جامع و کامل هستیم که اطلاعات جامع و دقیقی در مورد تورهای مختلف را برایتان
+        فراهم می‌کند
+
+      </p>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="card flip-left">
+            <div class="card-body text-center">
+              <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="" class="rounded-circle mb-3">
+              <h3 class="card-title mb-3">علی افشار</h3>
+              <p class="card-text">تجربه کاری: علی تا به حال در تورهای متعددی فعالیت داشته است و تجربه کاری قابل توجهی
+                در زمینه راهنمایی تورها دارد. او با تاریخچه و جاذبه‌های گردشگری مناطق مختلف آشنا است.
+                مدرک تحصیلی: علی دارای مدرک لیسانس گردشگری و هتلداری است که به وی دانش کافی در زمینه تاریخ، فرهنگ و
+                جاذبه‌های گردشگری می‌دهد</p>
+              <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
+              <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
+              <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
+              <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="card flip-left">
+            <div class="card-body text-center">
+              <img src="https://randomuser.me/api/portraits/women/11.jpg" alt="" class="rounded-circle mb-3">
+              <h3 class="card-title mb-3">مریم امیری</h3>
+              <p class="card-text">
+                تجربه کاری: مریم در زمینه تورهای محلی و بین‌المللی تجربه کاری گسترده‌ای دارد. او با نیازها و مسائلی که
+                در طول سفر به وجود می‌آید، آشنا است.
+                مدرک تحصیلی: مریم دارای مدرک کارشناسی ارشد مدیریت گردشگری است. این مدرک به وی دانش گسترده‌ای در زمینه
+                برنامه‌ریزی تورها و تجربه مسافران می‌دهد.
+
+              </p>
+              <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
+              <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
+              <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
+              <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="card flip-left">
+            <div class="card-body text-center">
+              <img src="https://randomuser.me/api/portraits/men/15.jpg" alt="" class="rounded-circle mb-3">
+              <h3 class="card-title mb-3">حسین عباسی</h3>
+              <p class="card-text">
+                تجربه کاری: حسین برای سال‌ها در صنعت گردشگری فعالیت داشته است و تجربه کاری گسترده‌ای در تورهای مختلف
+                دارد. او با جاذبه‌های محلی و فرهنگ منطقه آشنا است.
+                مدرک تحصیلی: حسین دارای مدرک کارشناسی گردشگری است. این مدرک به وی دانش کافی در زمینه تاریخچه و جاذبه‌های
+                گردشگری کمک می‌کند.
+              </p>
+              <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
+              <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
+              <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
+              <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="card flip-left">
+            <div class="card-body text-center">
+              <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="" class="rounded-circle mb-3">
+              <h3 class="card-title mb-3">سارا معینی</h3>
+              <p class="card-text">
+
+                تجربه کاری: سارا برای سال‌ها در صنعت گردشگری کار کرده است و تجربه کاری وسیعی در زمینه تورهای مختلف دارد.
+                او با چالش‌ها و نیازهای مسافران آشنا است.
+                مدرک تحصیلی: سارا دارای مدرک کارشناسی ارشد مدیریت گردشگری است. این مدرک به او دانش عمیقی در زمینه مدیریت
+                و برنامه‌ریزی تورها می‌دهد.
+              </p>
+              <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
+              <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
+              <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
+              <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- about us -------------------------------------------------------------------------------------------------------------------- -->
+  <section class="p-5 pt-lg-3  text-dark" id="about_us">
+    <div class="container">
+      <div class="row align-items-center justify-content-between">
+
+        <div class="col-md p-5">
+          <h2 class="fade-down-left">درباره ما</h2>
+          <p class="lead fade-down-left">
+            بازدیدکننده گرامی،
+
+            با افتخار، شرکت تور مسافرتی سفرناک را به شما معرفی می‌کنیم. به عنوان یکی از پیشروان در صنعت گردشگری، سفرناک
+            با ارائه خدمات متمیز و بی‌نظیر، تجربه‌ای حرفه‌ای و لذت‌بخش از سفرهای شگفت‌انگیز را به مشتریان عزیز ارائه
+            می‌دهد.
+
+            سفرناک با یک سابقه بی‌نظیر در زمینه سفرهای توری، برآمده از سال‌ها تجربه، از اولویت‌های مهم خود در ارائه
+            خدمات برتر و ارزشمند برای مسافرانی چون شما برخوردار است. از زمان تأسیس، ما به عنوان یک تیم حرفه‌ای و خلاق،
+            با اعتماد مشتریان، انتخاب مقاصد برتر، و همکاری با بهترین هتل‌ها و شرکت‌های هواپیمایی، به مشتریانمان
+            تجربه‌های بی‌نظیری از سفرهای لحظه‌یادماندنی ارائه می‌دهیم.
+
+            سفرناک به دلیل امتیازات ویژه‌ای که ارائه می‌دهد، از سایر شرکت‌های تور مسافرتی متمایز می‌شود
+          </p>
+        </div>
+
+        <div class="col-md">
+          <img src="/img/undraw_React_re_g3ui.png" class="img-fluid fade-up-right" alt="" />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!--Question Accordion -------------------------------------------------------------------------------------------------------------------- -->
+  <section class="p-5 pt-lg-3  text-dark" id="questions">
+    <div class="container ">
+      <h2 class="text-center mb-4 flip-up-animation">
+        سوالات متداول تور مسافرتی
+      </h2>
+
+      <div class="card flip-up-animation">
+
+        <!--item 1-->
+        <div class="accordion accordion-flush" id="questions">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#question-one">
+                آیا تورهای مسافرتی داخلی و خارجی خریداری شده از مجموعه رسپینا قابل استرداد می باشند؟ در صورت استرداد هر
+                کدام از تورها، آیا امکان بازگشت وجه به صورت کامل وجود دارد؟
+              </button>
+            </h2>
+            <div id="question-one" class="accordion-collapse collapse" data-bs-parent="#questions">
+              <div class="accordion-body">بله، کلیه تورهای مسافرتی مقاصد داخلی و خارجی خریداری شده از مجموعه رسپینا قابل
+                استرداد هستند. در صورت کنسل نمودن تور خریداری شده امکان بازگشت وجه به صورت کامل وجود ندارد ولی با توجه
+                به
+                قوانین کنسلی وسیله نقلیه و هتل انتخابی، مقداری از هزینه بابت کنسلی کسر می گردد و مابقی مبلغ ظرف مدت ۴۸
+                تا
+                ۷۲ ساعت به حساب شما عودت داده خواهد شد.</div>
+            </div>
+          </div>
+
+          <!--item 2-->
+          <div class="accordion accordion-flush" id="questions">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#question-two">
+                  در صورت عدم دریافت فایل واچر هتل و بلیط سفر پس از خرید تور مورد نظر داخلی یا خارجی از مجموعه رسپینا چه
+                  اقدامی باید انجام دهیم؟
+
+                </button>
+              </h2>
+              <div id="question-two" class="accordion-collapse collapse" data-bs-parent="#questions">
+                <div class="accordion-body">کارشناسان تیم پشتیبانی تور رسپینا، به صورت 24 ساعته آماده پاسخگویی و رفع
+                  مشکلات شما می باشند. از این رو شما می توانید در هر ساعت از شبانه روز که برای رزرو تور داخلی یا خارجی
+                  خود
+                  با مشکل مواجه شدید، با یکی از شماره تماس های موجود در پاین صفحه جهت رفع مشکل خود تماس بگیرید و یا
+                  شماره
+                  تماس خود را در کادر نیاز به راهنمایی، موجود در سمت راست صفحه وارد نموده، تا همکاران ما در کوتاهترین
+                  زمان
+                  ممکن با شما تماس بگیرند.</div>
+              </div>
+            </div>
+
+
+            <!--item 3-->
+            <div class="accordion accordion-flush" id="questions">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#question-three">
+                    آیا امکان رزرو تور مسافرتی داخلی و خارجی به صورت اینترنتی از سایت رسپینا وجود دارد؟ در اینصورت
+                    مسافران
+                    از چه مزایایی برخوردار می شوند؟ </button>
+                </h2>
+                <div id="question-three" class="accordion-collapse collapse" data-bs-parent="#questions">
+                  <div class="accordion-body">بله، مسافران می توانند علاوه بر رزرو تور مسافرتی به صورت حضوری و یا تلفنی،
+                    از طریق وب سایت رسپینا برای رزرو تور مقصد مورد نظر خود اقدام نمایند. مسافران با رزرو اینترنتی تور
+                    رسپینا می توانند، بلیط و هتل و مدت زمان سفر را متناسب با شرایط دلخواه خود انتخاب نمایند. به عبارت
+                    دیگر، این تورها از قبل برنامه ریزی شده نیستند و مطابق خواسته مسافر برنامه ریزی می شوند.</div>
+                </div>
+              </div>
+
+              <!--item 4-->
+              <div class="accordion accordion-flush" id="questions">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#question-four">
+                      آیا مجموعه رسپینا برای تورهای مسافرتی داخلی و خارجی، بیمه مسافرتی ارائه می دهد؟
+                    </button>
+                  </h2>
+                  <div id="question-four" class="accordion-collapse collapse" data-bs-parent="#questions">
+                    <div class="accordion-body">بله، کلیه تورهای داخلی و تورهای خارجی از خدمات بیمه مسافرتی برخوردار
+                      هستند، اما تهیه آن اجباری نمی باشد و مسافران خود می توانند تصمیم بگیرند که آیا این بیمه را تهیه
+                      کنند
+                      یا خیر. همچنین مسافران با انتخاب مجموعه رسپینا می توانند به دو صورت اینترنتی و مراجعه به سایت و یا
+                      برقراری تماس با کارشناسان تور داخلی و خارجی، برای خرید بیمه مسافرتی برای مقصد مورد نظر خود اقدام
+                      نمایند.
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+  </section>
+
+
+  <!-- contact ---------------------------------------------------------------------------------------------------------------------->
+  <section class="p-5 pt-lg-3 ftco-section" id="contact_us">
+    <div class="container">
+
+      <div class="row justify-content-center">
+        <div class="col-md-6 text-center mb-5">
+          <h2 class="heading-section zoom-in-down">تماس با ما</h2>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-md-12">
+          <div class="wrapper">
+            <div class="row mb-5">
+              <div class="col-md-3 col-sm-6">
+                <div class="dbox w-100 text-center zoom-in-down">
+                  <div class="icon d-flex align-items-center justify-content-center">
+                    <span class="fa fa-map-marker"></span>
+                  </div>
+                  <div class="text">
+                    <p><span> آدرس:</span>تهران،میدان آرژانتین ،خیابان بیهقی</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6">
+                <div class="dbox w-100 text-center zoom-in-down">
+                  <div class="icon d-flex align-items-center justify-content-center">
+                    <span class="fa fa-phone"></span>
+                  </div>
+                  <div class="text">
+                    <p><span>شماره تلفن:</span> <a href="tel://0992583333">0992583333</a></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6">
+                <div class="dbox w-100 text-center zoom-in-down">
+                  <div class="icon d-flex align-items-center justify-content-center">
+                    <span class="fa fa-paper-plane"></span>
+                  </div>
+                  <div class="text">
+                    <p><span>ایمیل:</span> <a href="mailto:mahdavi@gmail.com">mahdavi@gmail.com</a></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6">
+                <div class="dbox w-100 text-center zoom-in-down">
+                  <div class="icon d-flex align-items-center justify-content-center">
+                    <span class="fa fa-globe"></span>
+                  </div>
+                  <div class="text">
+                    <p><span>سفرناک</span> <a href="#">safarnak.ir</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+  </section>
+
+  <section class="p-5 pt-lg-3 ftco-section">
+    <div class="container">
+
+      <div class="row justify-content-center card">
+
+        <div class="row no-gutters g-0">
+          <div class="col-md-7">
+            <div class="contact-wrap w-100 p-md-5 p-4 fade-up">
+              <h2 class="mb-4 ">ارتباط با ما</h2>
+
+              <form id="contactForm" name="contactForm" class="contactForm">
+                <div class="row">
+                  <div class="col-md-6 my-3">
+                    <div class="form-group">
+                      <label class="label" for="contactUsName">نام و نام خانوادگی</label>
+                      <input type="text" class="form-control" name="name" id="contactUsName" placeholder="نام">
+                    </div>
+                  </div>
+                  <div class="col-md-6 my-3">
+                    <div class="form-group">
+                      <label class="label" for="contactUsemail">آدرس ایمیل</label>
+                      <input type="email" class="form-control" name="email" id="contactUsemail" placeholder="ایمیل">
+                    </div>
+                  </div>
+                  <div class="col-md-12 my-3">
+                    <div class="form-group">
+                      <label class="label" for="contactUssubject">موضوع</label>
+                      <input type="text" class="form-control" name="subject" id="contactUssubject" placeholder="موضوع">
+                    </div>
+                  </div>
+                  <div class="col-md-12 my-3">
+                    <div class="form-group">
+                      <label class="label" for="message">پیام</label>
+                      <textarea name="message" class="form-control" id="message" cols="30" rows="4"
+                        placeholder="پیام"></textarea>
+                    </div>
+                  </div>
+                  <div class="col-md-12 mt-4 w-50">
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-primary px-5"> ارسال پیام</button>
+
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-md-5 d-flex align-items-stretch">
+            <div class="info-wrap w-100 p-5 img d-sm-none d-md-block fade-up"
+              style="background-image: url(/img/contactUsImg.png)">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <include src="/footer.html" class="mt-auto"></include>
+
+  <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+  <!-- animations-------------------------------------------------------------------------------------------------------------------->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <!-- animations-------------------------------------------------------------------------------------------------------------------->
+
+  <script src="/js/main.js"></script>
+  <script src="js/animation.js"></script>
+
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+
+  <!-- show tour list handler------------------------------------------------------------------------------------ -->
+  <script>
+
+    let tourList = $("#tourList")
+
+    function loadPage() {
+
+      let filter = document.querySelector(".filterTab.active").innerText
+      let maxPrice = $("#max-price").val()
+      let minPrice = $("#min-price").val()
+      let passenger = $("#passenger").val()
+    
+      $.post("/user/tour/list", { filter,maxPrice,minPrice,passenger }, function (res) {
+        let { tours } = res
+
+        {
+          let myHtml = ""
+
+          for (let i = 0; i < tours.length; i++) {
+            let tour = tours[i]
+
+            myHtml +=
+              `
+                <div class="col-md-4 mb-4 flip-up-animation">
+                  <a href="/tour/${tour._id}">
+                    <div class="card h-100">
+                      <img src="${tour.photo}" class="card-img-top" alt="..." />
+                      <div class="card-body">
+                        <h5 class="card-title">${tour.title}</h5>
+                        <p class="card-text">
+                          ${replaceNWithBrLine(tour.summary)}   
+                        </p>
+                      </div>
+                      <div class="card-footer">
+                        <p class="card-text d-flex justify-content-between">
+                          <strong>قیمت:</strong>
+                          <span>${numberWithCommas(tour.price)} تومان</span>
+                        </p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              `
+          }
+
+          tourList.html(myHtml)
+          window.myLoad()
+        }
+
+      }, "json")
+    }
+
+    loadPage()
+
+    $("#filterSearchBtn").click(loadPage)
+
+
+  </script>
+
+  <script>
+    $("#contactForm").off("submit").on("submit", function () {
+      $.post("/user/contact", $(this).serialize(), responseHandler, "json")
+      return false
+    })
+
+  </script>
+
+  <script>
+    // Get all tabs
+    var tabs = document.getElementsByClassName("filterTab");
+
+    // Add click event listener to each tab
+    for (var i = 0; i < tabs.length; i++) {
+      tabs[i].addEventListener("click", function () {
+        // Deactivate all tabs
+        for (var j = 0; j < tabs.length; j++) {
+          tabs[j].classList.remove("active");
+        }
+
+        // Activate the clicked tab
+        this.classList.add("active");
+        loadPage()
+      });
+    }
+  </script>
+
+</body>
+
+</html>

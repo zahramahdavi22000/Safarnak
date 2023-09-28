@@ -1,0 +1,135 @@
+.fade-up-right {
+    position: relative;
+    opacity: 0;
+    transform: translateX(-50px) translateY(50px);
+    /* Start position */
+    transition: 1s all ease;
+}
+
+.fade-up-right.active {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+    /* End position */
+}
+
+.fade-down-left {
+    position: relative;
+    opacity: 0;
+    transform: translateX(50px) translateY(-50px);
+    transition: 1s all ease;
+}
+
+.fade-down-left.active {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+    /* End position */
+}
+
+
+
+
+/* ////////////////////////////////////////////////////// */
+.flip-up-animation {
+    position: relative;
+    opacity: 0;
+    transform: translateY(50px) rotateX(90deg);
+    /* Start position */
+    transition: 1s all ease;
+}
+
+.flip-up-animation.active {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+    /* End position */
+}
+
+/* /////////////////////// */
+
+.flip-left {
+    position: relative;
+    opacity: 0;
+    transform: translateX(50px) rotateY(-90deg);
+    /* Start position */
+    transition: 1s all ease;
+}
+
+.flip-left.active {
+    opacity: 1;
+    transform: translateX(0) rotateY(0);
+    /* End position */
+}
+
+/* /////////////////////////////////////////// */
+.zoom-in-down {
+    position: relative;
+    opacity: 0;
+    transform: scale(0.5) translateY(-50px);
+
+    transition: 1s all ease;
+}
+
+.zoom-in-down.active {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+
+}
+
+/* //////////////////////////////////////////////// */
+.fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade-up.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ///////////////////////////////////////////////////////// */
+.fade-up-right-load {
+    position: relative;
+    opacity: 0;
+    transform: translateX(-50px) translateY(50px);
+    /* Start position */
+    transition: 1s all ease;
+}
+
+.fade-up-right-load.active {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+    /* End position */
+}
+
+.fade-down-left-load {
+    position: relative;
+    opacity: 0;
+    transform: translateX(50px) translateY(-50px);
+    transition: 1s all ease;
+}
+
+.fade-down-left-load.active {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+    /* End position */
+}
+
+.zoom-in-down-load {
+    position: relative;
+    opacity: 0;
+    transform: scale(0.5) translateY(-50px);
+
+    transition: 1s all ease;
+}
+
+.zoom-in-down-load.active {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+
+}
+
+/* smart-search page animation background ********************************************************************************************/
+/************************************************************************************************************************************/
+
+
+

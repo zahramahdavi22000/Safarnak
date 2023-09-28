@@ -1,0 +1,5 @@
+PORT=your_run_port
+DB=your_mongodb_conection_string
+callback_uri=your_payment_callback_uri
+api_key=your_payment_api_key  
+apiKey=your_openai_api_key  
